@@ -1,0 +1,17 @@
+<div *ngFor="let movie of movieList">
+  <div class="card col-md-10 featured">
+    <div class="col-md-11">
+      <h4 class="spacing">{{movie.Title}}</h4>
+      <img class="col-md-4 responsive" src={{movie.Poster}} style="float:right">
+      <p>
+        <b>Released</b>: {{movie.Year}}
+        <br>
+        <b>Awards</b>: {{movie.Awards}}
+        <br>
+        <b>summary</b>:
+        <br>{{movie.Plot}}</p>
+    </div>
+  </div>
+</div>
+
+

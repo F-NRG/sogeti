@@ -1,0 +1,51 @@
+
+  <div class="search">
+      <div class="col-md-6">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row">
+            <input class="form-control spacing" type="search" placeholder="Movie title" name="search" ngModel required>
+              <span *ngIf="f.invalid && f.touched" class="help-block">Plz enter a movie titel</span>
+          <div class="input-group">
+            <button class="btn btn-primary spacing" type="submit" [disabled]="!f.valid">Search</button>
+            <label class="small spacing">Full plot</label>
+              <input class=" spacing" type="checkbox" name="plot" ngModel>
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <ng-container *ngIf="response === true; else notFound">
+      <div class="card col-md-10 featured">
+        <div class="col-md-11">
+          <h4 class="spacing">{{movie.Title}}</h4>
+          <img class="col-md-4 responsive" src={{movie.Poster}} style="float:right">
+          <p><b>Released</b>: {{movie.Year}}<br>
+          <b>Awards</b>: {{movie.Awards}}<br>
+          <b>Released</b>: {{movie.Year}}<br>
+          <b>Rating</b>: {{movie.Rated}}<br>
+          <b>Released</b>: {{movie.Released}}<br>
+          <b>Runtime</b>: {{movie.Runtime}}<br>
+          <b>Genre</b>:<br>
+          <li *ngFor="let genre of genres"> {{genre}}</li>
+          <b>Director</b>: {{movie.Director}}<br>
+          <b>Actors</b>:<br>
+          <li *ngFor="let actor of actors"> {{actor}}</li>
+          <b>Writers</b>:<br>
+          <li *ngFor="let writer of writers"> {{writer}}</li>
+          <b>Language</b>: {{movie.Language}}<br>
+          <b>Awards</b>: {{movie.Awards}}<br>
+          <b>ImdbRating</b>: {{movie.imdbRating}}<br>
+          <b>ImdbVotes</b>: {{movie.imdbVotes}}<br>
+          <b>Type</b>: {{movie.Type}}<br>
+          <b>Ratings</b>:
+          <li *ngFor="let rating of movie.Ratings">{{rating.Source}}: {{rating.Value}}</li>
+          <b>summary:</b>
+          <app-read-more class="link" [text]="movie.Plot" [maxLength]="200"></app-read-more>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #notFound>
+      <ng-container *ngIf="response === false; else noSearch">
+        <p style="color: tomato">We couldn't find what you're looking for!</p></ng-container>
+    </ng-template>
+    <ng-template #noSearch></ng-template>

@@ -1,0 +1,11 @@
+.featured {
+  margin-top: 1rem;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px;
+  color: dimgrey;
+  margin-block-end: 1rem;
+}
+.spacing {
+  margin-top: 1rem;
+
+}
+
