@@ -8,7 +8,7 @@ import { throwError, forkJoin } from 'rxjs';
 @Injectable()
 export class MovieService {
   apiKey = '&apikey=6c3a2d45&';
-  baseUrl = 'http://www.omdbapi.com/?type=movie&t=';
+  baseUrl = 'https://www.omdbapi.com/?type=movie&t=';
 
   constructor(private http: HttpClient) { }
 
